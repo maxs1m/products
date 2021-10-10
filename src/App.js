@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import React, { useEffect } from 'react'
+import 'materialize-css/dist/css/materialize.min.css'
+import { Redirect, Route, Switch } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { getProducts } from './store/productReducer'
+import Products from './components/Products/Products'
+import Product from './components/Products/Product'
+import ProductCreate from './components/Products/ProductCreate'
+import ProductUpdate from './components/Products/ProductUpdate'
+import Auth from './components/Auth/Auth'
 
-function App() {
+function App (props) {
+  useEffect(() => {
+    props.getProducts()
+  }, [])
+
+  if (!props.token) return <Auth/>
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+        <Route exact path='/'>
+          <Redirect to='/products'/>
+        </Route>
+        <Route path='/products'>
+          <Products />
+        </Route>
+        <Route exact path='/product/create'>
+          <ProductCreate />
+        </Route>
+        <Route exact path='/product/edit:productId?'>
+          <ProductUpdate />
+        </Route>
+        <Route path='/product/:productId?'>
+         <Product />
+        </Route>
+        <Route path='*'>
+          <div>404 not Found</div>
+        </Route>
+      </Switch>
     </div>
-  );
+  )
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    download: state.products.productsDownload,
+    create: state.products.productsCreate,
+    token: state.products.token
+  }
+}
+
+export default connect(mapStateToProps, { getProducts })(App)

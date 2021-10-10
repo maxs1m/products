@@ -1,38 +1,222 @@
-.App {
-  text-align: center;
+*, *:before, *:after {
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.products__container {
+    width: 80%;
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 100px auto 100px;
+    position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.product__container {
+    width: 21%;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.productImage {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.productImage__container {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.product__info_short {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    height: 150px;
+    border-top: 1px solid black;
+    color: black;
+}
+
+.btn__container_count {
+    position: absolute;
+    bottom: -50px;
+    right: 0;
+}
+
+.btn {
+    margin: 0 10px;
+}
+
+.product__info_large {
+    width: 60%;
+    border: 1px solid black;
+    margin: 200px auto;
+    display: flex;
+    position: relative;
+    height: 300px;
+}
+
+.productImage__container_large {
+    height: auto;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-right: 1px solid black;
+}
+
+.btn__container_back {
+    position: absolute;
+    top: -50px;
+    left: -10px
+}
+
+.product__description {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.btn__container_add {
+    position: absolute;
+    top: -50px;
+    right: -10px;
+}
+
+.productAdd__container {
+    position: relative;
+    width: 480px;
+    margin: 100px auto;
+}
+
+.productAdd__title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.form {
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 3px;
+}
+
+.form__box{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    line-height: 2em;
+    margin: 5px;
+    position: relative;
+
+}
+
+.form__label {
+    color: #333;
+    width: 110px;
+    font-size: 1em;
+    line-height: 32px;
+}
+
+.form__error {
+    position: absolute;
+    right: -200px;
+}
+
+.form__btn {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn__container_switch {
+    position: absolute;
+    top: -50px;
+    left: -10px;
+    display: flex;
+    align-items: center;
+}
+
+.select {
+    height: 35px;
+}
+
+.btn__container_edit_delete {
+    position: absolute;
+    top: -50px;
+    right: -10px;
+    display: flex;
+}
+
+.btn-danger {
+    background-color: red !important;
+}
+
+.btn-default {
+    background-color: #42a5f5 !important;
+}
+
+.btn-primary {
+    background-color: #00796b !important;
+}
+
+.preloader {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search {
+    position: absolute;
+    top: -50px;
+    right: 150px;
+}
+
+.search input {
+    margin: 0 !important;
+    height: 36px !important;
+    width: 150px !important;
+}
+
+.search input:focus {
+    border-bottom: 1px solid #42a5f5 !important;
+    box-shadow: 0 1px 0 0 #42a5f5 !important;
+    margin: 0 !important;
+}
+
+.filter {
+    position: absolute;
+    top: -50px;
+    right: 320px;
+}
+
+.filter select {
+    height: 36px;
+    width: 132px;
+}
+
+.sort {
+    position: absolute;
+    top: -50px;
+    right: 450px;
+}
+
+.sort select {
+    height: 36px;
+    width: 132px;
 }
